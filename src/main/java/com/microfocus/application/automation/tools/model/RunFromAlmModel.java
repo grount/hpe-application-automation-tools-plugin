@@ -147,6 +147,7 @@ public class RunFromAlmModel {
 			props.put(ALM_PASSWORD_KEY, almPassword);
 			props.put("almDomain", almDomain);
 			props.put("almProject", almProject);
+			props.put("almRunHost", almRunHost);
 		} else {
 			props.put("almUserName",
 					Util.replaceMacro(envVars.expand(almUserName), varResolver));
@@ -155,6 +156,7 @@ public class RunFromAlmModel {
 					Util.replaceMacro(envVars.expand(almDomain), varResolver));
 			props.put("almProject",
 					Util.replaceMacro(envVars.expand(almProject), varResolver));
+			props.put("almRunHost", Util.replaceMacro(envVars.expand(almRunHost), varResolver));
 		}
 
 		if (!StringUtils.isEmpty(this.almTestSets)) {
@@ -182,7 +184,6 @@ public class RunFromAlmModel {
 		}
 
 		props.put("almRunMode", almRunMode);
-		props.put("almRunHost", almRunHost);
 
 		return props;
 	}
